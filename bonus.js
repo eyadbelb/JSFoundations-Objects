@@ -8,9 +8,19 @@ const channels = require("./channels.json");
  * BONUS: use iteration method `.reduce()`
  ****************************************************************/
 function totalVideosDuration(channel) {
-  // Your code here
+  // return channel.videos.reduce;
+  let summ = 0;
+  channel.videos.forEach((video) => (summ += video.duration));
+  return summ;
+  //   let sum  = 0
+  //    channel.videos.reduce((a, b) => a + b);
+  //   return sum;
+  // let sum = 0;
+  // channel.video.reduce((vid) => (sum += video.duration));S
+  // return sum;
 }
 
+// console.log("WHAAAAAAAAAAAAAAAAAAAAAT");
 /**************************************************************
  * channelWithMostContent(channels):
  * - receives an array of channel objects
@@ -21,8 +31,23 @@ function totalVideosDuration(channel) {
  ****************************************************************/
 function channelWithMostContent(channels) {
   // Your code here
+  newy = [];
+
+  channels.forEach((channel) => {
+    newy.push(totalVideosDuration(channel));
+  });
+  console.log(newy);
+  let newz = newy.sort(function (a, b) {
+    return b - a;
+  });
+  console.log(newz[0]);
+  let newb = channels.find(
+    (channel) => newz[0] === totalVideosDuration(channel)
+  );
+  return newb;
 }
 
+// console.log("THEEEEEEEEEEEEEEEEEE");
 /**************************************************************
  * longestChannelName(channels):
  * - receives an array of channel objects
@@ -31,17 +56,35 @@ function channelWithMostContent(channels) {
  * BONUS: use iteration method `.sort()`
  ****************************************************************/
 function longestChannelName(channels) {
-  // Your code here
+  let newyanal = [];
+  channels.forEach((channel) => {
+    newyanal.push(channel.name.length);
+  });
+
+  console.log(newyanal);
+  let newyanaal = newyanal.sort(function (a, b) {
+    return b - a;
+  });
+  console.log(newyanaal);
+  console.log(newyanaal[0]);
+
+  let finalan = channels.find(
+    (channel) => newyanaal[0] === channel.name.length
+  );
+  return finalan;
+  // console.log(finalan);
 }
 
 // Check your answers by running this file and comparing what it logs
 
-console.log(totalVideosDuration(channels[0]));
+// console.log(totalVideosDuration(channels[0]));
 // Should log:
 
 // 636
+// console.log("HEEEEEEEEEEEEEEEEEEEEEELLLLLLLLLLLLLLLLLLLLLLLL");
+// console.log(channelWithMostContent(channels));
 
-console.log(channelWithMostContent(channels));
+// console.log("??????????????????");
 // Should log:
 
 // {
